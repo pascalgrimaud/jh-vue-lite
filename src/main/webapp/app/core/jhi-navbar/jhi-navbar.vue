@@ -37,17 +37,9 @@
             <font-awesome-icon icon="users-cog" />
             <span class="no-bold">Administration</span>
           </span>
-          <b-dropdown-item to="/admin/user-management" active-class="active">
-            <font-awesome-icon icon="users" />
-            <span>User management</span>
-          </b-dropdown-item>
           <b-dropdown-item v-if="openAPIEnabled" to="/admin/docs" active-class="active">
             <font-awesome-icon icon="book" />
             <span>API</span>
-          </b-dropdown-item>
-          <b-dropdown-item v-if="!inProduction" href="./h2-console/" target="_tab">
-            <font-awesome-icon icon="database" />
-            <span>Database</span>
           </b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item-dropdown
