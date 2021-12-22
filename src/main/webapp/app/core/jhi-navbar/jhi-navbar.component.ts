@@ -2,13 +2,7 @@ import { Component, Inject, Vue } from 'vue-property-decorator';
 import LoginService from '@/account/login.service';
 import AccountService from '@/account/account.service';
 
-import EntitiesMenu from '@/entities/entities-menu.vue';
-
-@Component({
-  components: {
-    'entities-menu': EntitiesMenu,
-  },
-})
+@Component
 export default class JhiNavbar extends Vue {
   @Inject('loginService')
   private loginService: () => LoginService;

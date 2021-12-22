@@ -11,8 +11,6 @@ const Home = () => import('@/core/home/home.vue');
 const Error = () => import('@/core/error/error.vue');
 import account from '@/router/account';
 import admin from '@/router/admin';
-import entities from '@/router/entities';
-import pages from '@/router/pages';
 
 Vue.use(Router);
 
@@ -39,8 +37,6 @@ const router = new Router({
     },
     ...account,
     ...admin,
-    entities,
-    ...pages
   ]
 });
 
