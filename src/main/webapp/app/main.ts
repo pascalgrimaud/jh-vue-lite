@@ -11,7 +11,6 @@ import * as bootstrapVueConfig from './shared/config/config-bootstrap-vue';
 import JhiItemCountComponent from './shared/jhi-item-count.vue';
 import JhiSortIndicatorComponent from './shared/sort/jhi-sort-indicator.vue';
 import InfiniteLoading from 'vue-infinite-loading';
-import RegisterService from './account/register/register.service';
 import UserManagementService from '@/admin/user-management/user-management.service';
 import LoginService from './account/login.service';
 import AccountService from './account/account.service';
@@ -67,7 +66,6 @@ new Vue({
   router,
   provide: {
     loginService: () => loginService,
-    registerService: () => new RegisterService(),
     userService: () => new UserManagementService(),
 
     userOAuth2Service: () => new UserOAuth2Service(),
