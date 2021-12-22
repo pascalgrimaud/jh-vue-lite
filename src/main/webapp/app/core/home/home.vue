@@ -20,10 +20,6 @@
             password="user").</span
           >
         </div>
-        <div class="alert alert-warning" v-if="!authenticated">
-          <span>You don't have an account yet?</span>&nbsp;
-          <router-link class="alert-link" to="/register">Register a new account</router-link>
-        </div>
       </div>
 
       <p>If you have any question on JHipster:</p>
