@@ -7,24 +7,7 @@ export default class AccountService {
     this.init();
   }
 
-  public init(): void {
-    this.retrieveProfiles();
-  }
-
-  public retrieveProfiles(): Promise<boolean> {
-    return new Promise(resolve => {
-      axios
-        .get<any>('management/info')
-        .then(res => {
-          if (res.data && res.data.activeProfiles) {
-            this.store.commit('setRibbonOnProfiles', res.data['display-ribbon-on-profiles']);
-            this.store.commit('setActiveProfiles', res.data['activeProfiles']);
-          }
-          resolve(true);
-        })
-        .catch(() => resolve(false));
-    });
-  }
+  public init(): void {}
 
   public retrieveAccount(): Promise<boolean> {
     return new Promise(resolve => {

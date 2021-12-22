@@ -24,20 +24,6 @@ describe('Account Service test suite', () => {
     store = config.initVueXStore(localVue);
   });
 
-  it('should init service and do not retrieve account', async () => {
-    axiosStub.get.resolves({ data: { 'display-ribbon-on-profiles': 'dev', activeProfiles: ['dev', 'test'] } });
-
-    accountService = await new AccountService(store, router);
-
-    expect(store.getters.logon).toBe(false);
-    expect(accountService.authenticated).toBe(false);
-    expect(store.getters.account).toBe(null);
-    expect(axiosStub.get.calledWith('management/info')).toBeTruthy();
-    expect(store.getters.activeProfiles[0]).toBe('dev');
-    expect(store.getters.activeProfiles[1]).toBe('test');
-    expect(store.getters.ribbonOnProfiles).toBe('dev');
-  });
-
   it('should init service and retrieve profiles if already logged in before but no account found', async () => {
     localStorage.setItem('jhi-authenticationToken', 'token');
 
@@ -48,7 +34,6 @@ describe('Account Service test suite', () => {
     expect(store.getters.logon).toBe(false);
     expect(accountService.authenticated).toBe(false);
     expect(store.getters.account).toBe(null);
-    expect(axiosStub.get.calledWith('management/info')).toBeTruthy();
   });
 
   it('should init service and retrieve profiles if already logged in before but exception occurred and should be logged out', async () => {
@@ -61,7 +46,6 @@ describe('Account Service test suite', () => {
     expect((<any>router).history.current.fullPath).toBe('/');
     expect(accountService.authenticated).toBe(false);
     expect(store.getters.account).toBe(null);
-    expect(axiosStub.get.calledWith('management/info')).toBeTruthy();
   });
 
   it('should init service and check for authority after retrieving account but getAccount failed', async () => {

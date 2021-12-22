@@ -5,7 +5,6 @@ export const accountStore: Module<any, any> = {
     logon: false,
     userIdentity: null,
     authenticated: false,
-    ribbonOnProfiles: '',
     activeProfiles: '',
   },
   getters: {
@@ -13,7 +12,6 @@ export const accountStore: Module<any, any> = {
     account: state => state.userIdentity,
     authenticated: state => state.authenticated,
     activeProfiles: state => state.activeProfiles,
-    ribbonOnProfiles: state => state.ribbonOnProfiles,
   },
   mutations: {
     authenticate(state) {
@@ -31,9 +29,6 @@ export const accountStore: Module<any, any> = {
     },
     setActiveProfiles(state, profile) {
       state.activeProfiles = profile;
-    },
-    setRibbonOnProfiles(state, ribbon) {
-      state.ribbonOnProfiles = ribbon;
     },
   },
 };
