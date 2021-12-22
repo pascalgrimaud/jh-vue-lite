@@ -26,24 +26,6 @@
         </b-nav-item>
         <b-nav-item-dropdown
           right
-          id="admin-menu"
-          v-if="hasAnyAuthority('ROLE_ADMIN') && authenticated"
-          :class="{ 'router-link-active': subIsActive('/admin') }"
-          active-class="active"
-          class="pointer"
-          data-cy="adminMenu"
-        >
-          <span slot="button-content" class="navbar-dropdown-menu">
-            <font-awesome-icon icon="users-cog" />
-            <span class="no-bold">Administration</span>
-          </span>
-          <b-dropdown-item v-if="openAPIEnabled" to="/admin/docs" active-class="active">
-            <font-awesome-icon icon="book" />
-            <span>API</span>
-          </b-dropdown-item>
-        </b-nav-item-dropdown>
-        <b-nav-item-dropdown
-          right
           href="javascript:void(0);"
           id="account-menu"
           :class="{ 'router-link-active': subIsActive('/account') }"

@@ -10,7 +10,6 @@ import Router, { RouteConfig } from 'vue-router';
 const Home = () => import('@/core/home/home.vue');
 const Error = () => import('@/core/error/error.vue');
 import account from '@/router/account';
-import admin from '@/router/admin';
 
 Vue.use(Router);
 
@@ -36,7 +35,6 @@ const router = new Router({
       meta: { error404: true }
     },
     ...account,
-    ...admin,
   ]
 });
 
