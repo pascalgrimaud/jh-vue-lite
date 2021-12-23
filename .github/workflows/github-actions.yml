@@ -4,8 +4,7 @@ jobs:
   pipeline:
     name: beer pipeline
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.pull_request.title, '[skip ci]') && !contains(github.event.pull_request.title, '[ci skip]')"
-    timeout-minutes: 40
+    timeout-minutes: 10
     env:
       NODE_VERSION: 16.13.0
       SPRING_OUTPUT_ANSI_ENABLED: DETECT
@@ -20,8 +19,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 11
-      # - name: Install node.js packages
-      #   run: npm install
       - name: Run tests and package the application
         run: |
           chmod +x mvnw
